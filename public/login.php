@@ -1,3 +1,8 @@
+<?php
+// Start session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +21,13 @@
             <button type="submit">Login</button>
         </form>
         <div id="loginMessage">
-            <!-- PHP code to display login message will be added later -->
+            <!-- Display login message if set in session -->
+            <?php
+            if (isset($_SESSION['message'])) {
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+            }
+            ?>
         </div>
     </div>
 </body>
